@@ -20,7 +20,7 @@ class UserProfileManager(BaseUserManager):
 
         return user
 
-    def crate_superuser(self, email, name, password):
+    def create_superuser(self, email, name, password):
         """Create and save a new super userwi with given details"""
         user = self.create_user(email, name, password)
 
@@ -29,7 +29,7 @@ class UserProfileManager(BaseUserManager):
         user.save(using=self._db)
 
         return user
-        
+
 
 class UserProfile(AbstractBaseUser, PermissionsMixin):
     """Database model for users in the system"""
